@@ -28,8 +28,8 @@ class Game
     puts "Comment jouer ?"
     puts "Il faut indiquer des chiffres de 1 à 9 dans la case correspondante pour afficher son X ou son O."
     puts "Let's go! \n"
-    gets.chomp
-    self.turn #fais appelle à la classe dans la classe. Donc ici appelle la classe pour turn
+    gets.chomp #Faire entrée pour effectivement enchaîner sur le jeu
+    self.turn #fais appelle à la classe dans la classe. Donc ici appelle la classe pour exécuter turn donc le jeu
   end
 
   def turn
@@ -38,7 +38,6 @@ class Game
     while @grid_board.victory? == false do #On fait tout ce qu'il y a en dessous, tant que victory? n'est pas atteint
       @players.each { |player| #Il ne faut pas oublier d'appeler l'array des joueurs pour cela et de leur appliquer les lignes suivantes
         @grid_board.display_board #Affichage du plateau
-
 
         puts "***** TOUR #{turns + 1} *****".yellow #La structure chaque tour
         puts "#{player.name} ! Choisis ta case."   #On appliquer le .name de la classe Player au player(les deux qu'on a lié juste avant.)
@@ -85,9 +84,7 @@ class Game
         break
       end
     } #fin des lignes à appliquer à chacun des joueurs inclus dans l'array players
-
     end #Fin de la boucle while avec l'atteinte de la condition de victory? en true
-
   end #fin de turn
 
 end
